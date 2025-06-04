@@ -3,7 +3,7 @@ import threading
 
 HOST = '26.159.152.153'
 PORT = 6060
-
+nome = input('Digite seu nome: ')
 cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 try:
@@ -33,7 +33,7 @@ def receber_mensagem():
 def enviar_mensagem():
     while True:
         try:
-            mensagem = input('')
+            mensagem = nome + ": " + input('')
             if mensagem.lower() == "/kit":
                 cliente.send(mensagem.encode('utf-8'))
                 cliente.close()
